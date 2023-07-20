@@ -105,7 +105,7 @@ const Form = () => {
       }
     }
 
-    setErrors({ ...errors, ...newErrors });
+    setErrors(newErrors);
     return isValid;
   };
 
