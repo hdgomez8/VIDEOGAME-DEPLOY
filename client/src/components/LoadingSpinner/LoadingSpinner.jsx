@@ -3,7 +3,7 @@ import styles from "../LoadingSpinner/LoadingSpinner.module.css";
 
 const LoadingSpinner = () => {
   return (
-    <div className={styles.spinner-container}>
+    <div className={styles.spinnercontainer}>
       <div className={styles.spinner}></div>
     </div>
   );
