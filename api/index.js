@@ -21,6 +21,11 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { getAllGenres } = require('./src/controllers/genresControllers');
 const { Genre } = require('./src/db');
+require ('dotenv').config();
+
+const {
+  PORT
+} = process.env;
 
 // Función para llenar la base de datos con los géneros
 async function fillGenresDatabase() {
@@ -36,8 +41,8 @@ async function fillGenresDatabase() {
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => fillGenresDatabase()).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(PORT, () => {
+    console.log('%s listening at', PORT); // eslint-disable-line no-console
   });
 }).catch((error) => {
   console.error('Error al sincronizar los modelos y llenar la base de datos:', error);
