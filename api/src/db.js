@@ -1,15 +1,28 @@
+// este archivo configura y exporta la conexión de la base de datos con Sequelize, 
+// define los modelos de la base de datos y 
+// establece las relaciones entre ellos, lo que permite interactuar con 
+// la base de datos de manera sencilla a través de objetos de modelo en otros módulos del proyecto.
+
+//******************db.js******************
+// Requiere los módulos necesarios, como dotenv para cargar las 
+// variables de entorno desde un archivo .env, Sequelize para crear la instancia de la base de datos, 
+// fs para trabajar con el sistema de archivos y path para manejar rutas de archivos.
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
+// Variable de entorno
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_PORT,DB_NAME,
 } = process.env;
 
+// Crea una instancia de Sequelize utilizando los datos de conexión proporcionados.
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -34,6 +47,8 @@ const { Videogame, Genre } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+// lo que establece una relación de muchos a muchos 
+// entre ellos a través de una tabla intermedia llamada VideogameGenre.
 Videogame.belongsToMany(Genre, { through: 'VideogameGenre' });
 Genre.belongsToMany(Videogame, { through: 'VideogameGenre' });
 

@@ -1,41 +1,52 @@
 .filtersContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .filtersContainer {
+    flex-direction: column;
   }
-  
+
+  /* Estilos para .selectContainer en pantallas más pequeñas */
   .selectContainer {
-    display: flex;
-    align-items: center;
+    margin-bottom: 10px;
   }
-  
-  .selectLabel {
-    margin-right: 10px;
-  }
-  
-  .selectBox {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .sortSelectBox {
-    width: 200px;
-  }
-  
-  .filterButton {
-    padding: 8px 16px;
-    background-color: #ff3366;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .filterButton:hover {
-    background-color: #e6005c;
-  }
-  
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+}
+
+.selectLabel {
+  margin-right: 10px;
+}
+
+.selectBox {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.sortSelectBox {
+  width: 200px;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  background-color: #ff3366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.filterButton:hover {
+  background-color: #e6005c;
+}
