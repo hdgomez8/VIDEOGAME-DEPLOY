@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import axios from "axios";
-axios.defaults.baseURL='https://videogame-deploy-production.up.railway.app'
+axios.defaults.baseURL='https://videogame-deploy-production.up.railway.app/'
 
 function App() {
   const location = useLocation();
