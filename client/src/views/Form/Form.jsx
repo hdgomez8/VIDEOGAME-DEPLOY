@@ -56,6 +56,14 @@ const Form = () => {
     let isValid = true;
     const newErrors = {};
 
+    // Validar el campo "name"
+    if (form.name.trim() === "" || form.name.length < 5 || !/^[a-zA-Z0-9\s]+$/.test(form.name)) {
+      newErrors.name = "El nombre debe tener al menos 5 caracteres y solo puede contener letras, números y espacios.";
+      isValid = false;
+    } else {
+      newErrors.name = "";
+    }
+
     for (const key in form) {
       if (typeof form[key] === "string" && form[key].trim() === "") {
         newErrors[key] = `${key} vacío`;
