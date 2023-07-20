@@ -197,11 +197,12 @@ const Form = () => {
       <div className={styles.formGroup}>
         <label className={styles.formLabel}>rating:</label>
         <input
-          type="text"
+          type="number"
           value={form.rating}
           onChange={changeHandler}
           name="rating"
           className={styles.formInput}
+          step="0.1"
         />
         <span className={styles.formError}>{errors.rating}</span>
       </div>
