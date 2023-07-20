@@ -10,7 +10,7 @@ const Detail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/videogames/${id}`);
+        const response = await axios.get(`/videogames/${id}`);
         const jsonData = await response.json();
         setData(jsonData);
         setLoading(false);

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { postVideoGame } from '../../redux/actions';
@@ -12,7 +13,7 @@ const Form = () => {
   // Función para obtener los géneros disponibles
   const fetchGenres = async () => {
     try {
-      const response = await fetch('http://localhost:3001/genres');
+      const response = await axios.get('/genres');
       const genres = await response.json();
       setGenresOptions(genres);
     } catch (error) {
