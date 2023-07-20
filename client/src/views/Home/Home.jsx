@@ -34,11 +34,10 @@ const Home = () => {
     setDisplayedVideoGames(displayedItems);
   }, [currentPage, filtered]);
 
-  if (loading) {
-    // Render a loading spinner or loading message while data is being fetched
+  if (!videoGames.length) {
     return <LoadingSpinner />;
   }
-  
+
   return (
     <div className={style.body}>
       <FilterByName videoGames={videoGames} setFiltered={setFiltered} />
