@@ -14,8 +14,7 @@ const Form = () => {
   const fetchGenres = async () => {
     try {
       const response = await axios.get('/genres');
-      const genres = await response.json();
-      setGenresOptions(genres);
+      setGenresOptions(response.data);
     } catch (error) {
       console.error('Error al obtener los géneros:', error);
     }

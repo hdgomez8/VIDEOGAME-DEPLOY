@@ -12,8 +12,7 @@ const Detail = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/videogames/${id}`);
-        const jsonData = await response.json();
-        setData(jsonData);
+        setData(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error al cargar los datos:', error);
