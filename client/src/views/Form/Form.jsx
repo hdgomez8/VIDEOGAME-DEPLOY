@@ -64,6 +64,39 @@ const Form = () => {
       newErrors.name = "";
     }
 
+    // Validar el campo "image"
+    if (form.image.trim() === "" || !/\.(jpg|jpeg|png|gif)$/.test(form.image.toLowerCase())) {
+      newErrors.image = "Por favor ingrese una URL de imagen válida (jpg, jpeg, png o gif).";
+      isValid = false;
+    } else {
+      newErrors.image = "";
+    }
+
+    // Validar el campo "releaseDate"
+    if (form.releaseDate.trim() === "" || isNaN(Date.parse(form.releaseDate))) {
+      newErrors.releaseDate = "Por favor ingrese una fecha válida.";
+      isValid = false;
+    } else {
+      newErrors.releaseDate = "";
+    }
+
+    // Validar el campo "description"
+    if (form.description.trim() === "" || form.description.length < 15) {
+      newErrors.description = "La descripción debe tener al menos 15 caracteres.";
+      isValid = false;
+    } else {
+      newErrors.description = "";
+    }
+
+    // Validar el campo "rating"
+    const ratingValue = parseFloat(form.rating);
+    if (isNaN(ratingValue) || ratingValue < 1 || ratingValue > 5) {
+      newErrors.rating = "El rating debe ser un número entre 1.0 y 5.0.";
+      isValid = false;
+    } else {
+      newErrors.rating = "";
+    }
+
     for (const key in form) {
       if (typeof form[key] === "string" && form[key].trim() === "") {
         newErrors[key] = `${key} vacío`;
