@@ -1,0 +1,53 @@
+.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .image {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .description {
+    margin-bottom: 10px;
+  }
+  
+  .releaseDate {
+    font-weight: bold;
+  }
+  
+  .platform {
+    margin-bottom: 5px;
+  }
+  
+  .noPlatforms {
+    font-style: italic;
+    color: gray;
+  }
+  
+  .rating {
+    font-weight: bold;
+  }
+  
+  .genre {
+    margin-bottom: 5px;
+  }
+  

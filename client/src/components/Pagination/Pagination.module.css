@@ -1,0 +1,26 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pageNumber {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pageNumber:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .pageNumber.active {
+    background-color: #ff3366;
+    font-weight: bold;
+  }
+  
