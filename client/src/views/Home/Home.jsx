@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import CardsContainer from "../../components/CardsContainer/CardsContainer";
-import Pagination from "../../components/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import { getVideoGames } from "../../redux/actions";
+import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import Pagination from "../../components/Pagination/Pagination";
 import style from "../Home/Home.module.css";
 import FilterByName from "../../components/FilterByName/FilterByName"
 import FiltersByGenreAndSource from "../../components/FiltersByGenreAndSource/FiltersByGenreAndSource"
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,15 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 15;
   const [displayedVideoGames, setDisplayedVideoGames] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getVideoGames());
+    dispatch(getVideoGames())
+    .then(()=>setLoading(false))
+    .catch((error)=>{
+      console.error('Error fetching video games:', error);
+      setLoading(false);
+    });
   }, [dispatch]);
 
   useEffect(() => {
@@ -27,6 +34,11 @@ const Home = () => {
     setDisplayedVideoGames(displayedItems);
   }, [currentPage, filtered]);
 
+  if (loading) {
+    // Render a loading spinner or loading message while data is being fetched
+    return <LoadingSpinner />;
+  }
+  
   return (
     <div className={style.body}>
       <FilterByName videoGames={videoGames} setFiltered={setFiltered} />
