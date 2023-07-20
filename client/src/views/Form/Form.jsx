@@ -97,13 +97,13 @@ const Form = () => {
       newErrors.rating = "";
     }
 
-    //validar campos vacios
-    for (const key in form) {
-      if (typeof form[key] === "string" && form[key].trim() === "") {
-        newErrors[key] = `${key} vacío`;
-        isValid = false;
-      }
-    }
+    // //validar campos vacios
+    // for (const key in form) {
+    //   if (typeof form[key] === "string" && form[key].trim() === "") {
+    //     newErrors[key] = `${key} vacío`;
+    //     isValid = false;
+    //   }
+    // }
 
     setErrors(newErrors);
     return isValid;
